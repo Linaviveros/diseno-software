@@ -1,0 +1,115 @@
+package herencia;
+
+public class Nombre {
+
+	private String nombre;
+	private String primerApellido;
+	private String segundoApellido;
+	
+	public Nombre(String nombre, String primerApellido, String segundoApellido) {
+		this.nombre = nombre;
+		this.primerApellido = primerApellido;
+		this.setSegundoApellido(segundoApellido);
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public String getPrimerApellido() {
+		return primerApellido;
+	}
+	
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
+	}
+
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
+	}
+	
+	public String toString () {
+		return " nombre : " + nombre +  " Con primer apellido : " + primerApellido + "Y segundo apellido" + segundoApellido ;
+	}
+	
+}
+
+// clase direccion
+package herencia;
+
+public class Direccion  extends Nombre {
+
+	private String calle;
+	private String ciudad;
+	private String provincia;
+	private int postal;
+	
+	public Direccion(String nombre, String primerApellido, String segundoApellido, String calle, String ciudad, String provincia, int postal) {
+		super(nombre, primerApellido, segundoApellido);
+		this.calle = calle;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.postal = postal;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public int getPostal() {
+		return postal;
+	}
+
+	public void setPostal(int postal) {
+		this.postal = postal;
+	}
+	public String toString () {
+		return super.toString() + "Calle: " + calle + " ciudad : " + ciudad +" provincia:" + provincia + " Postal: " + postal  ;
+		
+	}
+}
+
+// main
+
+package herencia;
+
+public class MainN {
+
+	public MainN() {
+		
+	}
+
+	public static void main(String[] args) {
+		Nombre nombre1 = new Nombre (" Lina "," Viveros "," Melo ");
+		Direccion direccion = new Direccion(nombre1.getNombre(),nombre1.getPrimerApellido(),nombre1.getSegundoApellido()," Urb la merced "," Pasto "," Nariño ",520002);
+		System.out.println(" Sus datos han sido registrados con exito: " + direccion);
+	}
+}
