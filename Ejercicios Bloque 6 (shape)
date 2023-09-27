@@ -1,0 +1,191 @@
+package ejercicioShape;
+
+public class ShapeHerencia {
+
+	protected String color = "red";
+	protected boolean filled =true;
+	
+	public ShapeHerencia() {
+		
+	}
+	public ShapeHerencia(String color, boolean filled) {
+		this.color = color;
+		this.filled = filled;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public boolean isFilled() {
+		return filled;
+	}
+	public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+	@Override
+	public String toString() {
+		return "Shape [color=" + color + ", filled=" + filled + "]";
+	}
+	
+
+}
+
+
+// clase circulo
+package ejercicioShape;
+
+public class CircleHerencia extends ShapeHerencia {
+
+protected double radius ;
+	
+	public CircleHerencia() {
+		
+	}
+	public CircleHerencia(double radius) {
+		this.radius= radius;
+	}
+	public CircleHerencia(double radius, String color, boolean filled) {
+		super(color, filled);
+		this.radius = radius;
+	}
+	public double getRadius() {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public double getArea() {
+		double Area = Math.PI*Math.pow(radius, 2);
+		return Area;
+	}
+	public double GetPerimetro() {
+		double Perimetro = 2*Math.PI*radius;
+		return Perimetro;
+	}
+
+	@Override
+	public String toString() {
+	    return "Circulo [shape [color=" + getColor() + ", filled=" + isFilled() + "], radius=" + radius + "]";
+	}
+
+	
+
+}
+
+// clase Rectangulo
+package ejercicioShape;
+
+public class RectangleHerencia extends ShapeHerencia {
+
+	protected double width ;
+	protected double length ;
+	
+	public RectangleHerencia() {
+		
+	}
+	public RectangleHerencia(double width, double length) {
+		this.width = width;
+		this.length = length;
+	}
+	
+	public RectangleHerencia(String color, boolean filled, double width, double length) {
+		super(color, filled);
+		this.width = width;
+		this.length = length;
+	}
+	public double getWidth() {
+		return width;
+	}
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	public double getLength() {
+		return length;
+	}
+	public void setLength(double length) {
+		this.length = length;
+	}
+	public double getArea() {
+		double Area =width*length;
+		return Area;
+	}
+	public double getPerimetro() {
+		double Perimetro = (2*width)+(2*length);
+		return Perimetro;
+	}
+	@Override
+	public String toString() {
+		return "Rectangulo [Shape[color=" + color + ", filled=" + filled+"],  width=" + width + ", length=" + length + "]";
+	}
+	
+	
+
+}
+
+//clase square
+package ejercicioShape;
+
+public class SquareHerencia extends RectangleHerencia {
+protected double side;
+	
+    public SquareHerencia() {
+    }
+
+    public SquareHerencia(double side) {
+        this.side = side;
+    }
+
+	public SquareHerencia(double side, String color, boolean filled, double width, double length) {
+		super(color, filled, width, length);
+		this.side = side;
+	}
+
+	public double getSide() {
+		return side;
+	}
+
+	public void setSide(double side) {
+		this.side = side;
+	}
+	public void setWidth(double side) {
+		this.side = side;
+	}
+	public void setLength(double side) {
+		this.side = side;
+	}
+
+	@Override
+	public String toString() {
+		return "Square [Rectangulo[Shape[color=" + color + ", filled=" + filled+"], width=" + width + ", length=" + length + "]]";
+	}
+	
+
+}
+
+//main
+
+package ejercicioShape;
+
+public class MainPerson {
+
+	public MainPerson() {
+	
+	}
+
+	public static void main(String[] args) {
+			ShapeHerencia shape1 = new ShapeHerencia("blue", true);
+			CircleHerencia circulo1 = new CircleHerencia(3.16);
+			RectangleHerencia rectan1 = new RectangleHerencia(3.16,2.3); 
+			SquareHerencia square1 = new SquareHerencia(23.1, rectan1.color,rectan1.filled,rectan1.getLength(),rectan1.getWidth());
+			
+			
+			System.out.println(shape1);
+			System.out.println(circulo1);
+			System.out.println(rectan1);
+			System.out.println(square1);
+			
+
+		}
+}
