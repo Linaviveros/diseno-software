@@ -1,0 +1,102 @@
+package animal;
+
+public class AnimalHerencia {
+
+	 String name;
+	 public AnimalHerencia() {
+
+	}
+    
+	public AnimalHerencia(String name) {
+		this.name=name;
+		
+	}
+	public String toString() {
+		return "Animal(name=" + name + ")";
+	}
+}
+
+//clase gato
+package animal;
+
+public class Cat extends Mamma1 {
+    public Cat(String name) {
+        
+       
+super(name);
+    }
+
+    public void greets() {
+        System.out.println();
+        System.out.println ("Meow");
+    }
+
+    public String toString() {
+        return "Cat[" + super.toString() + "]";
+    }
+
+
+    }
+
+
+//clase perro
+package animal;
+
+public class Dog extends Mamma1 {
+    public Dog(String name) {
+        super(name);
+    }
+
+    public void greets() {
+        System.out.println("Woof");
+    }
+
+    public void greets(Dog another) {
+        System.out.println();
+        System.out.println("Woof Woof");
+    }
+
+    public String toString() {
+        return "Dog[" + super.toString() + "]";
+    }
+}
+
+//clase mamifero
+package animal;
+
+public class Mamma1 extends AnimalHerencia {
+    public Mamma1(String name) {
+        super(name);
+    }
+
+    public String toString() {
+        return "Mamma1[" + super.toString() + "]";
+    }
+}
+
+
+//main
+
+
+package animal;
+
+public class MainHerenciaAnimal {
+	
+		public static void main(String[] args) {
+	        AnimalHerencia animal = new AnimalHerencia("simon");
+	        AnimalHerencia animal1 = new AnimalHerencia("mateo");
+	        System.out.println(animal1);
+
+	        Mamma1 mammal = new Mamma1("");
+	        System.out.println(mammal.toString() + animal1.name);
+
+	        Cat gato = new Cat("");
+	        System.out.println(gato.toString() + animal1.name);
+	        gato.greets();
+
+	        Dog perro = new Dog("");
+	        System.out.println(perro.toString() + animal1.name);
+	        perro.greets();
+	        perro.greets(perro);
+	    }
+	}
